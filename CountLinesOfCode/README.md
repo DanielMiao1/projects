@@ -20,3 +20,9 @@ Output
 
     [SEARCH-OUTPUT]
     The total amount of lines counted in the directory [DIRECTORY-PATH] is: [LINES]
+## Ignore
+To ignore a directory (and files within the directory), enter the name of the directory in the `ignore` file.
+If a `ignore` file is not present in the current directory, the program will default to the ignore list `".git", "venv", "node_modules", ".idea"`
+## File extensions
+All files extensions the program searches for lines are in the `include` file.
+If a `include` file is not present in the current directory, the program will default to the include list `"py", "cpp", "cs", "c", "rb", "r", "f", "h", "fs", "java", "ts", "tsx", "js", "html", "css", "less", "scss", "php", "asp", "aspx", "sh", "json"`.
