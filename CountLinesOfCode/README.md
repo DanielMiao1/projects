@@ -1,28 +1,15 @@
 # Lines of code counter
 **Counts the line of code for a file, or for each file in a directory**
-## Run
-Run the `main.py` python script (`python3 main.py`)
-## Features
-### For a file
-Enter the file name (absolute or relative path) as a command-line argument after the file call.
+## Usage
+Enter the directory/file (absolute or relative) path as a command-line argument:
 
-`python3 main.py [FILE-PATH]`
+    python3 main.py [PATH]
 
-Output
-
-`The file [FILE-PATH] has [LINES] lines.`
-### For a directory
-Enter the directory (absolute or relative path) as a command-line argument after the file call.
-
-`python3 main.py [DIRECTORY-PATH]`
-
-Output
+**Output**
 
     [SEARCH-OUTPUT]
     The total amount of lines counted in the directory [DIRECTORY-PATH] is: [LINES]
-## Ignore
-To ignore a directory (and files within the directory), enter the name of the directory in the `ignore` file.
-If a `ignore` file is not present in the current directory, the program will default to the ignore list `".git", "venv", "node_modules", ".idea"`
-## File extensions
-All files extensions the program searches for lines are in the `include` file.
-If a `include` file is not present in the current directory, the program will default to the include list `"py", "cpp", "cs", "c", "rb", "r", "f", "h", "fs", "java", "ts", "tsx", "js", "html", "css", "less", "scss", "php", "asp", "aspx", "sh", "json"`.
+## Ignore List
+This program also supports a list of files to ignore, in regex format. To add a file to the ignore list, append a regex pattern on a new line to an `ignore.txt` file in the directory where the program is executed. Leading and trailing whitespace, blank lines, and lines starting with `#` are ignored. If an ignore file is not present, the program will default to the ignore list `"venv/", "venv/", ".git/", ".idea/", "__pycache__/", "node_modules/", "build/", "dist/"`.
+## Allowed file extensions
+Upon finding a file, the program will check if the file ends with a set of allowed extensions. To specify the allowed extensions, append the allowed extensions (one per line, extensions such as `min.js` are allowed), excluding the leading period, to a `extensions.txt` file in the directory where the program is executed. If an allowed extensions file is not present, the program will default to the list `"py", "cpp", "cs", "c", "rb", "r", "f", "h", "fs", "java", "ts", "tsx", "js", "html", "css", "less", "scss", "sass", "php", "asp", "aspx", "sh", "zsh", "fish", "bash", "bat", "ps1", "xsh", "csh", "tcsh", "ksh", "jl", "lua"`.
