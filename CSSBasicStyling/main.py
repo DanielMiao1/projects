@@ -37,7 +37,7 @@ def processFile(path):
 			if ": " not in line:
 				return error(path, line_number + 1, "Expected space after colon")
 
-			if line[-1] != ";" and line[-1] != "/":
+			if line[-1] not in [";", "/"]:
 				return error(path, line_number + 1, "Expected semicolon at the end of the line", "\033[91mE\033[0m")
 
 			properties[line.split(":")[0].strip()] = ":".join(line.split(":")[1:])[:-1]
@@ -51,7 +51,7 @@ def processFile(path):
 				if line[line.index("{") - 1] != " ":
 					return error(path, line_number + 1, "Expected whitespace before open-braces")
 			elif not header and line.strip():
-				return error(path, line_number + 1, "Top-level expression after first rule\nExpected blank line or selector")
+				return error(path, line_number + 1, "Top-level expression after first rule\nExpected blank line or selector", increment_error=False)
 
 
 def searchDirectory(path="./"):
