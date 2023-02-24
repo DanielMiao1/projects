@@ -37,7 +37,7 @@ def processFile(path):
 			if ": " not in line:
 				return error(path, line_number + 1, "Expected space after colon")
 
-			if line[-1] != ";":
+			if line[-1] != ";" and line[-1] != "/":
 				return error(path, line_number + 1, "Expected semicolon at the end of the line", "\033[91mE\033[0m")
 
 			properties[line.split(":")[0].strip()] = ":".join(line.split(":")[1:])[:-1]
