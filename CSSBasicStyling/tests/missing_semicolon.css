@@ -1,0 +1,15 @@
+body {
+  background-color: red;
+}
+
+header {
+  display: grid;
+}
+
+header::before {
+  content: ">>"
+    "<<";
+
+  color: red
+}
+
